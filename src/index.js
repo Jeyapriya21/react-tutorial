@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { HashRouter, Route, Switch } from 'react-router-dom';
+import Home from './Home';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+        <main>
+            <Switch>
+                <Route path="/" component={App} exact />
+                <Route path="/home" component={Home} exact />
+            </Switch>
+        </main>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
