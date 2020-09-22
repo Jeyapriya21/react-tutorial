@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.css';
 
 class Home extends React.Component {
     state = {
@@ -6,8 +7,10 @@ class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                Ici c'est le composant Home !!!!!
+            <div className="App">
+                <div className="App-header">
+                    Ici c'est le composant Home !!!!!
+                </div>
             </div>
         );
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ConfidentialInfo from './ConfidentialInfo';
-import Login from './Login';
+import ConfidentialInfo from './profile/ConfidentialInfo';
+import Login from './login/Login';
 
 class App extends React.Component {
 
@@ -20,6 +20,7 @@ class App extends React.Component {
         this.setState({
             isConnected: true
         });
+        this.props.history.push('home');
     }
 
     render() {
