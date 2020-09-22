@@ -69,6 +69,14 @@ class App extends React.Component {
         });
     }
 
+    // Usage: <input type="text" value={this.state.username} onChange={this.handleChangeInput('username')} /> 
+    handleChangeInput = (name) => (event) => {
+        let nouvelleValeur = event.target.value;
+        this.setState({
+            [name]: nouvelleValeur
+        });
+    }
+
     render() {
 
         let blockBoutonDeConnexion = (
