@@ -6,6 +6,7 @@ class App extends React.Component {
 
     state = {
         username: 'coucou@gmail.com',
+        password: 'poooo',
         isConnected: false,
         name: 'Michael',
         age: 45,
@@ -40,7 +41,7 @@ class App extends React.Component {
 
     handleConnect = () => {
         let peutSeConnecter = false;
-        if (this.state.username == 'hello@lo.com') {
+        if (this.state.username == 'hello@lo.com' && this.state.password == 'blabla') {
             peutSeConnecter = true;
         }
         this.setState({
@@ -61,20 +62,30 @@ class App extends React.Component {
         });
     }
 
+    handleChangePassword = (event) => {
+        let nouvelleValeur = event.target.value;
+        this.setState({
+            password: nouvelleValeur
+        });
+    }
+
     render() {
 
         let blockBoutonDeConnexion = (
             <div>
-                <input type="text" value={this.state.username} onChange={this.handleChangeUsername} />
+                <input type="text" value={this.state.username} onChange={this.handleChangeUsername} /><br />
+                <input type="password" value={this.state.password} onChange={this.handleChangePassword} /><br/>
                 <button onClick={this.handleConnect}>Se connecter</button>
             </div>
         );
-        if (this.state.isConnected == true) {
+        // if (this.state.isConnected == true) { 
+        if (this.state.isConnected) {
             blockBoutonDeConnexion = null;
         }
 
         let blockBoutonDeDeconnexion = (<button onClick={this.handleDisconnect}>Se déconnecter</button>);
-        if (this.state.isConnected == false) {
+        // if (this.state.isConnected == false) {
+        if (!this.state.isConnected) {
             blockBoutonDeDeconnexion = null;
         }
 
@@ -89,7 +100,8 @@ class App extends React.Component {
                 }
             </div>
         );
-        if (this.state.isConnected == false) {
+        // if (this.state.isConnected == false) {
+        if (!this.state.isConnected) {
             blockInformation = null;
         }
 
