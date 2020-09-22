@@ -32,15 +32,10 @@ class Login extends React.Component {
     */
 
     handleConnect = () => {
-        let peutSeConnecter = false;
         if (this.state.username == 'hello@lo.com' && this.state.password == 'blabla') {
-            peutSeConnecter = true;
+            const fonctionDeAppJs = this.props.onConfirm;
+            fonctionDeAppJs();
         }
-        this.setState({
-            isConnected: peutSeConnecter
-        });
-        const fonctionDeAppJs = this.props.onConfirm;
-        fonctionDeAppJs();
     }
 
     render() {
